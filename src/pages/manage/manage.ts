@@ -26,7 +26,7 @@ export class ManagePage {
   }
 
   goGroupPage(){
-    this.app.getRootNav().setRoot(LoginPage);
+    this.nav.push(GroupPage);
   }
 
   logout() {

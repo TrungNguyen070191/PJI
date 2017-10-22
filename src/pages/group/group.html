@@ -1,7 +1,7 @@
 <ion-header>
     <ion-navbar style="background-color: #fff">
         <ion-title>
-            <h4>Group</h4>
+            <h4>{{groupHeader}}</h4>
         </ion-title>
         <ion-buttons end>
             <button ion-button icon-only style="color: #ff9e48" (click)="goNewGroup()">
@@ -11,22 +11,65 @@
     </ion-navbar>
 </ion-header>
 <ion-content class="group-background">
+    <div *ngIf="!isNewGroup" class="group-search">
+        <div class="input-group">
+            <input type="text" class="form-control search-border" placeholder="Search for..." aria-label="Search for...">
+            <span class="input-group-btn ">
+                <button class="btn">
+                    <span class="glyphicon glyphicon-search"></span>
+                </button>
+            </span>
+        </div>
+        <div class="list-data">
+                <div class="item-data col-lg-12 col-md-12 col-sm-12 nopadding">
+                    <div class="item-data-detail col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                        <table>
+                            <tr>
+                                <td>
+                                    <span style="font-size: 20px; font-weight: bold;">TRS Dev</span>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <button (click)="goToDetailPage()" style="min-height:50px; background-color:#ff9e48; color:#fff" class="col-lg-2 col-md-2 col-sm-2 col-xs-2 nopadding">
+                        <span class="glyphicon glyphicon-check"></span>
+                    </button>
+    
+                </div>
+    
+                <div class="item-data col-lg-12 col-md-12 col-sm-12 nopadding">
+                    <div class="item-data-detail col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                        <table>
+                            <tr>
+                                <td>
+                                    <span style="font-size: 20px; font-weight: bold;">TRS QC</span>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <button style="min-height:50px; background-color:#ff9e48; color:#fff" class="col-lg-2 col-md-2 col-sm-2 col-xs-2 nopadding">
+                        <span class="glyphicon glyphicon-check"></span>
+                    </button>
+    
+                </div>
+            </div>
+    </div>
     <div *ngIf="isNewGroup">
-            <h2>New Group</h2>
-            <ion-list class="group-card">
-                <ion-item>
-                    <ion-label stacked>Group ID</ion-label>
-                    <ion-input type="password"></ion-input>
-                </ion-item>
-                <ion-item>
-                    <ion-label stacked>Group name</ion-label>
-                    <ion-input type="text"></ion-input>
-                </ion-item>
-                <ion-item>
-                    <ion-label>Is active</ion-label>
-                    <ion-checkbox checked="true"></ion-checkbox>
-                </ion-item>
-            </ion-list>
-            <button ion-button (click)="goSave()">Save</button>
+        <ion-list class="group-card">
+            <ion-item>
+                <ion-label stacked>Group ID</ion-label>
+                <ion-input type="password"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label stacked>Group name</ion-label>
+                <ion-input type="text"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label>Is active</ion-label>
+                <ion-checkbox checked="true"></ion-checkbox>
+            </ion-item>
+        </ion-list>
+        <button ion-button (click)="goSave()">Save</button>
+        <button ion-button (click)="goCancel()">Cancel</button>
     </div>
 </ion-content>
